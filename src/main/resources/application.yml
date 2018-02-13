@@ -1,0 +1,48 @@
+# Servlet Container & Health Setup
+server:
+  address: 0.0.0.0
+management:
+  address: 0.0.0.0
+  port: 8081
+endpoints:
+  enabled: false
+  health:
+    enabled: true
+    
+# Spring Boot
+spring:
+
+# Camel Spring Boot
+camel:
+  springboot:
+    name: CamelSwaggerContractFirst
+
+# Logging
+logging:
+  config: classpath:logback.xml
+  level:
+    #org.apache.camel: DEBUG
+    org.apache.camel.examples: DEBUG
+
+# Application API
+api:
+  base-path: /camel
+  swagger:
+    base-path: ${cxf.path}/${api.base-path}
+    license: Apache 2.0
+    license-url: http://www.apache.org/licenses/LICENSE-2.0.html
+    title: Swagger Petstore
+    terms-of-service-url: http://swagger.io/terms/
+    version: 1.0.0
+    description: This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.
+    contact: apiteam@swagger.io
+  cors:
+    allowCredentials: true
+    allowHeaders:
+    allowOrigins:
+    blockCorsIfUnauthorized: false
+    defaultOptionsMethodsHandlePreflight: true
+    exposeHeaders:
+    findResourceMethod: true
+    maxAge: 2147483647
+    preflightErrorStatus: 200
