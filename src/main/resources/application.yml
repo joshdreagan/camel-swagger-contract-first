@@ -11,6 +11,17 @@ endpoints:
     
 # Spring Boot
 spring:
+  datasource:
+    url: jdbc:derby:directory:target/derby;create=true
+    username: APP
+    password: APP
+    schema: classpath:META-INF/sql/schema.sql
+    schemaUsername: ${spring.datasource.username}
+    schemaPassword: ${spring.datasource.password}
+    data: classpath:META-INF/sql/data.sql
+    dataUsername: ${spring.datasource.username}
+    dataPassword: ${spring.datasource.password}
+    continueOnError: true
 
 # Camel Spring Boot
 camel:
